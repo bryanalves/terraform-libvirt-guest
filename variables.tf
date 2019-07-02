@@ -38,6 +38,6 @@ variable "volume_pool" {
   default = "default"
 }
 
-variable "base_volume_id" {
+variable "base_volume_name" {
   type = "string"
 }
