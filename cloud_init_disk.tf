@@ -22,7 +22,7 @@ data "template_file" "vm_networkdata" {
     ip = "${var.ip_address}"
     gateway = "${var.gateway_address}"
     resolv_nameservers = "${jsonencode(var.resolv_nameservers)}"
-    net_device = "${var.guest_net_device}"
+    net_device = "${lookup(local.guest_netdevs, var.os_flavor)}"
   }
 }
 
