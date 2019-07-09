@@ -3,9 +3,7 @@ resource "libvirt_domain" "this" {
 
   cloudinit = "${libvirt_cloudinit_disk.this.id}"
 
-  disk {
-    volume_id = "${libvirt_volume.this.id}"
-  }
+  disk = ["${concat(list(local.root_disk), var.extra_disks)}"]
 
   console {
     type = "pty"

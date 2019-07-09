@@ -46,3 +46,8 @@ variable "network" {
   type = "string"
   default = "dhcp"
 }
+
+variable "extra_disks" {
+  type = "list"
+  default = []
+}
