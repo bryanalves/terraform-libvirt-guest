@@ -7,7 +7,7 @@ variable "resolv_domain" {
 }
 
 variable "resolv_nameservers" {
-  type = "string"
+  type = "list"
 }
 
 variable "networking_bridge_iface" {
@@ -40,4 +40,9 @@ variable "volume_pool" {
 
 variable "base_volume_name" {
   type = "string"
+}
+
+variable "network" {
+  type = "string"
+  default = "dhcp"
 }

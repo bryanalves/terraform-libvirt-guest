@@ -11,7 +11,7 @@ ssh_authorized_keys:
 runcmd:
   - sed -i '/10.0.2.3/d' /etc/resolv.conf
 
-manage-resolv-conf: true
+manage_resolv_conf: true
 resolv_conf:
   nameservers: ${resolv_nameservers}
   domain: ${resolv_domain}

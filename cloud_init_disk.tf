@@ -16,8 +16,8 @@ data "template_file" "vm_metadata" {
   }
 }
 
-data "template_file" "vm_networkdata" {
-  template = "${file("${path.module}/tpl/networkdata.tpl")}"
+data "template_file" "vm_static_networkdata" {
+  template = "${file("${path.module}/tpl/static_networkdata.tpl")}"
   vars = {
     ip = "${var.ip_address}"
     gateway = "${var.gateway_address}"
@@ -31,5 +31,5 @@ resource "libvirt_cloudinit_disk" "this" {
   pool = "${var.volume_pool}"
   user_data = "${data.template_file.vm_userdata.rendered}"
   meta_data = "${data.template_file.vm_metadata.rendered}"
-  network_config = "${data.template_file.vm_networkdata.rendered}"
+  network_config = "${var.network == "dhcp" ? "" : data.template_file.vm_static_networkdata.rendered}"
 }
