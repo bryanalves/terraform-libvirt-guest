@@ -2,6 +2,7 @@ data "template_file" "vm_userdata" {
   template = "${file("${path.module}/tpl/userdata.tpl")}"
   vars = {
     ssh_key = "${var.ssh_key}"
+    network = "${var.network}"
     resolv_nameservers = "${jsonencode(var.resolv_nameservers)}"
     resolv_domain = "${var.resolv_domain}"
     extra_cloud_config = "${var.extra_cloud_config}"
