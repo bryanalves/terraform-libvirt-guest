@@ -11,7 +11,5 @@ resource "libvirt_domain" "this" {
     target_type = "serial"
   }
 
-  network_interface {
-    bridge = "${var.networking_bridge_iface}"
-  }
+  network_interface = ["${local.networking_config}"]
 }

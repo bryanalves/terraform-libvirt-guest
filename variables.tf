@@ -51,3 +51,8 @@ variable "extra_disks" {
   type = "list"
   default = []
 }
+
+variable "mac_address" {
+  type = "string"
+  default = ""
+}
